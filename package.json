@@ -2,13 +2,13 @@
   "name": "gc-states",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "binding.js",
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "node-pre-gyp --fallback-to-build"
+    "prepare": "node-gyp build",
+    "build": "node-gyp rebuild"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +16,12 @@
   "dependencies": {
     "nan": "^2.14.1",
     "node-pre-gyp": "^0.15.0"
+  },
+  "binary": {
+    "module_name": "gcstates",
+    "module_path": "./build/{module_name}/v{version}/{configuration}/{node_abi}-{platform}-{arch}/",
+    "remote_path": "./{module_name}/v{version}/{configuration}/",
+    "package_name": "{node_abi}-{platform}-{arch}.tar.gz",
+    "host": ""
   }
 }
