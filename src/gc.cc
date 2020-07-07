@@ -27,3 +27,18 @@ struct HeapData
   uint64_t gcEndTime;
   int gcType;
 };
+
+class GCResponseResource : public Nan::AsyncResource
+{
+public:
+  GCResponseResource(/* args */);
+  ~GCResponseResource();
+};
+
+GCResponseResource::GCResponseResource(/* args */)
+{
+}
+
+GCResponseResource::~GCResponseResource()
+{
+}
