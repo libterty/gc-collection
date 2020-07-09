@@ -1,27 +1,36 @@
 {
   "name": "gc-states",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "binding.js",
   "engines": {
     "node": ">=10"
   },
+  "repository": {
+    "url": "https://github.com/libterty/gc-collection.git"
+  },
   "scripts": {
-    "prepare": "node-gyp build",
-    "build": "node-gyp rebuild"
+    "prepare": "node-pre-gyp build",
+    "clean": "node-pre-gyp clean",
+    "build": "node-pre-gyp rebuild",
+    "publish": "node-pre-gyp-github publish --release",
+    "config": "node-pre-gyp configure",
+    "package": "node-pre-gyp package",
+    "prepack": "npm run prepare & npm run package"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "nan": "^2.14.1",
-    "node-pre-gyp": "^0.15.0"
+    "node-pre-gyp": "^0.15.0",
+    "node-pre-gyp-github": "^1.4.3"
   },
   "binary": {
     "module_name": "gcstates",
     "module_path": "./build/{module_name}/v{version}/{configuration}/{node_abi}-{platform}-{arch}/",
-    "remote_path": "./{module_name}/v{version}/{configuration}/",
     "package_name": "{node_abi}-{platform}-{arch}.tar.gz",
-    "host": ""
+    "host": "https://github.com/libterty/gc-collection/releases/download/",
+    "remote_path": "{version}"
   }
 }

@@ -2,3 +2,6 @@ build
 node_modules
 npm-debug.log
 .DS_Store
+gc-states
+*.pub
+*.env
